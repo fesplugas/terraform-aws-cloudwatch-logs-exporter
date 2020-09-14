@@ -1,7 +1,7 @@
 resource "null_resource" "download_lambda_zip" {
-  triggers {
-    version = "${var.exporter_version}"
-  }
+  # triggers {
+  #   version = "${var.exporter_version}"
+  # }
 
   provisioner "local-exec" {
     command = "curl -L -o ${path.module}/lambda-cloudwatch-export_${var.exporter_version}_linux_amd64.zip https://github.com/gadgetry-io/lambda-cloudwatch-export/releases/download/v${var.exporter_version}/lambda-cloudwatch-export_${var.exporter_version}_linux_amd64.zip"
