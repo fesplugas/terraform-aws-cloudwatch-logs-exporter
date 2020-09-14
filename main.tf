@@ -9,7 +9,7 @@ resource "null_resource" "download_lambda_zip" {
 }
 
 resource "aws_lambda_function" "cloudwatch_export" {
-  function_name = var.name
+  function_name = replace(var.name, "/", "_")
   filename      = "${path.module}/lambda-cloudwatch-export_${var.exporter_version}_linux_amd64.zip"
   role          = aws_iam_role.cloudwatch_export.arn
   handler       = "cloudwatch-export"
