@@ -17,7 +17,7 @@ resource "aws_lambda_function" "cloudwatch_export" {
 
   environment {
     variables {
-      environment = "${terraform.workspace}"
+      environment = terraform.workspace
     }
   }
 
