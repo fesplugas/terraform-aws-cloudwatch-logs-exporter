@@ -43,7 +43,7 @@ resource "aws_lambda_permission" "events" {
 }
 
 resource "aws_iam_role" "cloudwatch_export" {
-  name               = var.name
+  name               = replace(var.name, "/", "_")
   description        = "Lambda role for CloudWatch Log exports"
   assume_role_policy = data.aws_iam_policy_document.cloudwatch_export_assume_role.json
 }
