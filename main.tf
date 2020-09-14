@@ -15,12 +15,6 @@ resource "aws_lambda_function" "cloudwatch_export" {
   handler       = "cloudwatch-export"
   runtime       = "go1.x"
 
-  environment {
-    variables {
-      environment = terraform.workspace
-    }
-  }
-
   depends_on = [null_resource.download_lambda_zip]
 }
 
