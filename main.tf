@@ -61,7 +61,7 @@ data "aws_iam_policy_document" "cloudwatch_export_assume_role" {
 }
 
 resource "aws_iam_role_policy" "cloudwatch_export" {
-  name   = var.name
+  name   = replace(var.name, "/", "_")
   role   = aws_iam_role.cloudwatch_export.id
   policy = data.aws_iam_policy_document.cloudwatch_export_inline.json
 }
